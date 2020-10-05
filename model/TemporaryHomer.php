@@ -1,8 +1,8 @@
 <?php
 class TemporaryHomer extends Document {
     private $id,$cpf,$imgComprovante,$avaliacao;
-    public function __construct($nome, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf,$img,$avaliacao) {
-        parent::__construct($nome, $endereco, $bairro, $cidade, $uf, $cep, $contato);
+    public function __construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf,$img,$avaliacao) {
+        parent::__construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato);
         $this->cpf=$cpf;
         $this->avaliacao=$avaliacao;
         $this->imgComprovante=$img;

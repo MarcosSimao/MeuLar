@@ -1,6 +1,6 @@
 <?php
 class Animals {
-   private $codigo,$nome,$porte,$sexo,$descricao,$saude,$img_animais;
+   private $id,$codigo,$nome,$porte,$sexo,$descricao,$saude,$img_animais;
    function __construct($nome, $porte, $sexo, $descricao, $saude, $img_animais) {
        $this->nome = $nome;
        $this->porte = $porte;
@@ -9,7 +9,15 @@ class Animals {
        $this->saude = $saude;
        $this->img_animais = $img_animais;
    }
-   function getCodigo() {
+   function getId() {
+       return $this->id;
+   }
+
+   function setId($id) {
+       $this->id = $id;
+   }
+
+      function getCodigo() {
        return $this->codigo;
    }
 

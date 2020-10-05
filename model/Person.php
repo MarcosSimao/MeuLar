@@ -1,8 +1,8 @@
 <?php
 class Person extends Document{
   private $id,$cpf;
-    public function __construct($nome, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf) {
-        parent::__construct($nome, $endereco, $bairro, $cidade, $uf, $cep, $contato);
+    public function __construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf) {
+        parent::__construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato);
         $this->cpf=$cpf;
         } 
         function getCpf() {

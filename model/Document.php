@@ -2,7 +2,7 @@
  abstract class Document {
   private $nome,$email,$senha,$endereco,$bairro,$cidade,$uf,$cep,$contato;
   function __construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato) {
-      $this->nome = $nome;
+      $this->setNome($nome);
       $this->email=$email;
       $this->senha=$senha;
       $this->endereco = $endereco;
@@ -47,7 +47,14 @@ function getNome() {
   }
 
   function setNome($nome): void {
-      $this->nome = $nome;
+ $nome= mb_strtolower(trim(preg_replace("/\s+/", " ", $nome)));
+ $nome = ucwords($nome);
+$nome = explode(" ", $nome);
+for($i=0;$i<=count($nome)-1;$i++){
+    if($nome[$i]=="E" || $nome[$i]=='Dos' || $nome[$i]=="Das" || $nome[$i]=="Do" || $nome[$i]=="De" || $nome[$i]=="Da"){
+        $nome[$i] = strtolower($nome[$i]);
+    }}
+      $this->nome =implode(" ", $nome);
   }
   function setEmail($email){
       $this->email=$email;

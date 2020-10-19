@@ -9,5 +9,7 @@ function loadPages($class){
 }
 }
 spl_autoload_register('loadPages');
+
+define('MEULAR',__DIR__);
  
 

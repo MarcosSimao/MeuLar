@@ -1,7 +1,6 @@
 <?php
 class Logins {
-    
- public static function loginPerson($email,$senha):bool{
+public static function loginPerson($email,$senha):bool{
      $sql="SELECT email,senha FROM pessoa WHERE email=:EMAIL AND senha=:SENHA";
       try{
         $sqls= Conexao::conectBanco()->prepare($sql);
@@ -16,10 +15,9 @@ class Logins {
         return false;
     }
      } catch (PDOException $ex) {
-     echo "erro".$ex;
+     header('Location: ../view/error.php');
      }
-    
- }
+    }
   public static function loginOngs($email,$senha):bool{
      $sql="SELECT email,senha FROM ongs WHERE email=:EMAIL AND senha=:SENHA";
       try{
@@ -35,9 +33,8 @@ class Logins {
         return false;
     }
      } catch (PDOException $ex) {
-     echo "erro".$ex;
+     header('Location: ../view/error.php');
      }
-    
  }
  public static function loginHomer($email,$senha):bool{
      $sql="SELECT email,senha FROM lartemporario WHERE email=:EMAIL AND senha=:SENHA";
@@ -54,7 +51,7 @@ class Logins {
         return false;
     }
      } catch (PDOException $ex) {
-     echo "erro".$ex;
+     header('Location: ../view/error.php');
      }
     
  }

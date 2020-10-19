@@ -10,6 +10,6 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        
+        <img src="../uploadImg/animals/0.jpg5f83e718ddfb3.jpg">
     </body>
 </html>

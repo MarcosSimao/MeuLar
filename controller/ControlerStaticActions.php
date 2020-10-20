@@ -47,6 +47,7 @@ class ControlerStaticActions {
     }
 
     public static function validateTel($tel): bool {
+        $tel = self::clearNumbers($tel);
         if ($tel != null) {
             if (strlen($tel) == 11) {
                 if (preg_match('/(\d)\1{10}/', $tel)) {

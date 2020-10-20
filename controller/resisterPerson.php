@@ -1,7 +1,6 @@
 <?php
 require_once '../config.php';
 if($_SERVER['REQUEST_METHOD']==="POST"){
-if(isset($_POST['acao'])){
  if(empty($_POST['nome'])){
      ControlerStaticActions::EchoEmpty("nome");
  }else if(empty($_POST['cpf'])){
@@ -22,6 +21,12 @@ if(isset($_POST['acao'])){
    ControlerStaticActions::EchoEmpty("cep");  
  }else if(empty($_POST['contato'])){
    ControlerStaticActions::EchoEmpty("contato");  
+ }else if(!ControlerStaticActions::validateEmail($_POST['email'])){
+  echo " Coloque um Email Valido...";   
+ }else if(!ControlerStaticActions::validateCpf($_POST['cpf'])){
+     echo "por favor coloque um cpf Valido...";
+ }else if(!ControlerStaticActions::validateTel($_POST['contato'])){
+     echo "Coloque um numero de telefone  valido...";
  }else{
      $nome=$_POST['nome'];
      $email=$_POST['email'];
@@ -43,11 +48,9 @@ if(isset($_POST['acao'])){
      
      
  }
- }else{
-    echo'erro no sistema';
-}
+
 }else{
-    header('Location: ../view/webFormPessoa.php');
+    header('Location: ../view/pages/register/index.html');
 }
 
 

@@ -28,7 +28,8 @@ public static function loginPerson($email,$senha):bool{
         );
       $sqls->execute($param);
     if($sqls->rowCount()>0){
-        return true;
+       return true;
+        
     }else{
         return false;
     }

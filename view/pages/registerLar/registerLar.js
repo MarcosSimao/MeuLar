@@ -96,18 +96,6 @@ const loadImg = (evt) => {
 
 image.addEventListener("change", (evt) => loadImg(evt));
 
-const file = document.getElementById("file");
-const labelFile = document.getElementById("sendFile");
-
-const loadFile = (evt) => {
-  let name = file.value;
-  name = name.split("\\");
-  name = name[2];
-
-  labelFile.textContent = `${name} - alterar`;
-};
-file.addEventListener("change", (evt) => loadFile(evt));
-
 const message = document.getElementById("message");
 const nome = document.getElementById("name");
 
@@ -131,10 +119,9 @@ submit.addEventListener("click", async (evt) => {
   formData.append("uf", uf.value);
   formData.append("email", email.value);
   formData.append("senha", pass.value);
-  formData.append("imagem", image.value);
-  formData.append("comprovante", file.value);
-
-  const options = {
+  formData.append("imagem", image.files[0]);
+  console.log(image.files[0]);
+   const options = {
     method: "POST",
     body: formData,
   };

@@ -137,7 +137,7 @@ class ControlerStaticActions {
         }
     }
 
-    private static function clearNumbers($numero): string {
+    public static function clearNumbers($numero): string {
         return preg_replace("/[^0-9]/", "", $numero);
     }
 

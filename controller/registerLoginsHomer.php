@@ -1,8 +1,7 @@
 <?php
 require_once '../config.php';
 if($_SERVER['REQUEST_METHOD']==="POST"){
- if(isset($_POST['acao'])){
-     if(empty($_POST['email'])){
+if(empty($_POST['email'])){
       ControlerStaticActions::EchoEmpty("email");   
      }else if(empty($_POST['senha'])){
        ControlerStaticActions::EchoEmpty("senha");  
@@ -15,10 +14,8 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
            echo "email ou senha esta errado !!";
        }
      }
+  
  }else{
-     echo "erro no sistema !!";
- } 
- }else{
-    header('Location: ../view/weblogin.php');
+    header('Location: ../view/pages/loginLar/index.html');
 }
 

@@ -29,8 +29,8 @@ class Insert extends PDO{
 }
    }
  public function insertOngs(Ongs $ongs):bool{
-   $sql='INSERT INTO ongs (nome,cnpj,email,senha,endereco,bairro,cidade,uf,cep,contato,imagem_ongs,avaliacao)' 
-        .'VALUES(:NOME,:CNPJ,:EMAIL,:SENHA,:ENDERECO,:BAIRRO,:CIDADE,:UF,:CEP,:CONTATO,:IMAGEM,:AVALIACAO)';
+   $sql='INSERT INTO ongs (nome,cnpj,email,senha,endereco,bairro,cidade,uf,cep,contato,imagem_ongs)' 
+        .'VALUES(:NOME,:CNPJ,:EMAIL,:SENHA,:ENDERECO,:BAIRRO,:CIDADE,:UF,:CEP,:CONTATO,:IMAGEM)';
     try {
         $sqls=$this->connection->prepare($sql);
         $sqls->bindValue(':NOME',$ongs->getNome(),PDO::PARAM_STR);
@@ -44,18 +44,17 @@ class Insert extends PDO{
         $sqls->bindValue(':CEP',$ongs->getCep(),PDO::PARAM_STR);
         $sqls->bindValue(':CONTATO',$ongs->getContato(),PDO::PARAM_STR);
         $sqls->bindValue(':IMAGEM',$ongs->getImagem_Ongs(),PDO::PARAM_STR);
-        $sqls->bindValue(':AVALIACAO',$ongs->getAvaliacao(),PDO::PARAM_STR);
        if($sqls->execute()>0){
            return true;
        }
- }catch (PDOException $exc) {
+ }catch (PDOException $e) {
     return false;
-    echo "erro no cadastro".$exc;
+    
 }
    }
   public function insertTemporaryHomer(TemporaryHomer $homer):bool{
-       $sql='INSERT INTO lartemporario (nome,cpf,email,senha,endereco,bairro,cidade,uf,cep,contato,imagem_comproResidencia,avaliacao)' 
-        .'VALUES(:NOME,:CPF,:EMAIL,:SENHA,:ENDERECO,:BAIRRO,:CIDADE,:UF,:CEP,:CONTATO,:IMAGEM,:AVALIAR)'; 
+       $sql='INSERT INTO lartemporario (nome,cpf,email,senha,endereco,bairro,cidade,uf,cep,contato,imagem_comproResidencia)' 
+        .'VALUES(:NOME,:CPF,:EMAIL,:SENHA,:ENDERECO,:BAIRRO,:CIDADE,:UF,:CEP,:CONTATO,:IMAGEM)'; 
     try {
         $sqls=$this->connection->prepare($sql);
         $sqls->bindValue(':NOME',$homer->getNome(),PDO::PARAM_STR);
@@ -69,13 +68,11 @@ class Insert extends PDO{
         $sqls->bindValue(':CEP',$homer->getCep(),PDO::PARAM_STR);
         $sqls->bindValue(':CONTATO',$homer->getContato(),PDO::PARAM_STR);
         $sqls->bindValue(':IMAGEM',$homer->getImgComprovante(),PDO::PARAM_STR);
-        $sqls->bindValue(':AVALIAR',$homer->getAvaliacao(),PDO::PARAM_STR);
        if($sqls->execute()>0){
            return true;
        }
  }catch (PDOException $exc) {
     return false;
-    echo "erro no cadastro".$exc;
 }
   }
   public function insertAnimals(Animals $animals,int $id):bool{

@@ -1,10 +1,9 @@
 <?php
 class TemporaryHomer extends Document {
-    private $id,$cpf,$imgComprovante,$avaliacao;
-    public function __construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf,$img,$avaliacao) {
+    private $id,$cpf,$imgComprovante;
+    public function __construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato,$cpf,$img) {
         parent::__construct($nome,$email,$senha, $endereco, $bairro, $cidade, $uf, $cep, $contato);
         $this->cpf=$cpf;
-        $this->avaliacao=$avaliacao;
         $this->imgComprovante=$img;
         }
         function getCpf() {
@@ -15,20 +14,12 @@ class TemporaryHomer extends Document {
             return $this->imgComprovante;
         }
 
-        function getAvaliacao() {
-            return $this->avaliacao;
-        }
-
         function setCpf($cpf): void {
             $this->cpf = $cpf;
         }
 
         function setImgComprovante($imgComprovante): void {
             $this->imgComprovante = $imgComprovante;
-        }
-
-        function setAvaliacao($avaliacao): void {
-            $this->avaliacao = $avaliacao;
         }
         function getId() {
             return $this->id;

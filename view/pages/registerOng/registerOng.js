@@ -82,6 +82,7 @@ passConfirm.addEventListener("blur", () => {
 });
 
 const image = document.getElementById("sendImg");
+
 const labelImg = document.getElementById("img");
 
 const loadImg = (evt) => {
@@ -118,9 +119,8 @@ submit.addEventListener("click", async (evt) => {
   formData.append("uf", uf.value);
   formData.append("email", email.value);
   formData.append("senha", pass.value);
-  formData.append("imagem", image.value);
-
-  const options = {
+  formData.append("image", image.files[0]);
+   const options = {
     method: "POST",
     body: formData,
   };
@@ -158,7 +158,8 @@ submit.addEventListener("click", async (evt) => {
       message.classList.add("hidden");
       message.style.animation = "fadeIn 0.5s";
     }, 5500);
-  } else {
+  } 
+  else {
     message.textContent = "Há informações inconsistentes";
 
     message.classList.remove("hidden");
@@ -173,4 +174,5 @@ submit.addEventListener("click", async (evt) => {
       message.style.animation = "fadeIn 0.5s";
     }, 5500);
   }
-});
+}
+);

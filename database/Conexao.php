@@ -11,10 +11,12 @@ final class Conexao {
           self::$pdo = new PDO("mysql:host=".self::HOST.";dbname=".self::BD,self::USER,self::PASSWORD);
           self::$pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
        } catch (Exception $ex) {
+            throw new PDOException($ex);
             echo 'erro na conexao';
        } 
-      return self::$pdo;
+      
     }
+    return self::$pdo;
 }
 }
 

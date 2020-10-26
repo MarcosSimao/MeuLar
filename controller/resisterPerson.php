@@ -37,8 +37,12 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
      $uf=$_POST['uf'];
      $cep=$_POST['cep'];
     $contato= ControlerStaticActions::clearNumbers($_POST['contato']);
-     $cpf=$_POST['cpf'];
-    $cpf= ControlerStaticActions::clearNumbers($cpg);
+    $cpf= ControlerStaticActions::clearNumbers($_POST['cpf']);
+    if(DaoStaticActions::personCpfExists($cpf)){
+        echo "Cpf Ja esta registrado no Sistema !";
+    }else if(DaoStaticActions::personEmailExists($email)){
+        echo "E-mail ja esta registrado no Sistema";
+    }else{
    $person = new Person($nome, $email, $senha, $endereco, $bairro, $cidade, $uf, $cep, $contato, $cpf);
    $insert = new Insert();
   if( $insert->insertPerson($person)){
@@ -46,6 +50,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
   }else{
      echo "nao foi possivel cadastrar";
   }
+ }
  }
 
 }else{

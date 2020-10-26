@@ -1,5 +1,6 @@
 <?php
  final class DaoStaticActions extends PDO{
+     
  public static function personEmailExists($email):bool{
      $sql = 'SELECT email FROM pessoa WHERE email=:EMAIL';
      try{
@@ -9,12 +10,13 @@
         );
       $sqls->execute($param);
     if($sqls->rowCount()>0){
-        return true;
+      return true;  
     }else{
         return false;
     }
+        
      } catch (PDOException $ex) {
-      header('Location: ../view/error.php');
+      return false;
      }
  }
  public static function personCpfExists($cpf):bool{
@@ -25,13 +27,13 @@
            ":CPF"=>$cpf 
         );
       $sqls->execute($param);
-    if($sqls->rowCount()>0){
-        return true;
+     if($sqls->rowCount()>0){
+      return true;  
     }else{
         return false;
     }
-     } catch (PDOException $ex) {
-      header('Location: ../view/error.php');
+    } catch (PDOException $ex) {
+      return false;
      }
  }
  public static function ongEmailExists($email):bool{

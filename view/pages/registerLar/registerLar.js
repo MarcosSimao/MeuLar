@@ -120,7 +120,6 @@ submit.addEventListener("click", async (evt) => {
   formData.append("email", email.value);
   formData.append("senha", pass.value);
   formData.append("imagem", image.files[0]);
-  console.log(image.files[0]);
    const options = {
     method: "POST",
     body: formData,
@@ -140,7 +139,7 @@ submit.addEventListener("click", async (evt) => {
     message.textContent = res;
 
     message.classList.remove("hidden");
-    if (res !== "cadastrado com sucesso") {
+    if (res !== "cadastrado com sucesso !!") {
       message.classList.remove("success");
       message.classList.add("error");
     } else {
@@ -176,3 +175,12 @@ submit.addEventListener("click", async (evt) => {
     }, 5500);
   }
 });
+
+const loginPerson = '../login'
+const loginLar = '../loginLar'
+const loginOng = '../loginOng'
+const registerPerson = '../register'
+const registerLar = '../registerLar'
+const registerOng = '../registerOng'
+
+menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);

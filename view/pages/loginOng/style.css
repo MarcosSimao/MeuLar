@@ -71,10 +71,9 @@ section form a {
   font-family: Roboto, sans-serif;
 }
 
-
 #message {
   position: absolute;
-  top: 5px;
+  top: 100px;
   left: 0;
   width: 18%;
   height: 5vh;
@@ -85,6 +84,7 @@ section form a {
   color: var(--primary-color);
   animation: fadeIn 0.5s;
   border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes fadeIn {

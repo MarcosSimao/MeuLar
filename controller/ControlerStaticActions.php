@@ -26,7 +26,7 @@ class ControlerStaticActions {
         $unicoId = uniqid($img['name']);
         $diretorio = '/uploadImg/' . $folder . '/' . $unicoId . '.jpg';
         move_uploaded_file($img['tmp_name'], MEULAR . $diretorio);
-        return "../../.." . $diretorio;
+        return "../../..".$diretorio;
     }
 
     public static function validateCep($cep): bool {
@@ -141,4 +141,7 @@ class ControlerStaticActions {
         return preg_replace("/[^0-9]/", "", $numero);
     }
 
+    public static function passwordGenerator():string{
+        return rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9).rand(0,9);
+    }
 }

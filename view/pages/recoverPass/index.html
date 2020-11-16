@@ -8,28 +8,25 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../../components/menu/style.css" />
 
-    <title>Login</title>
+    <title>Recuperar senha</title>
   </head>
   <body>
     <section>
       <figure>
-        <figcaption class="hidden">Login</figcaption>
+        <figcaption class="hidden">Recuperar senha</figcaption>
         <img src="../../assets/cadastro_pessoas.png" alt="Cadastro" />
       </figure>
 
       <form method="POST">
-        <h2>Login</h2>
+        <h2>Recuperar Senha</h2>
+        <p>Insira o seu email</p>
         <div id="info">
           <label for="email" class="hidden">Email</label>
           <input type="email" placeholder="Email" id="email" />
-
-          <label for="pass" class="hidden">Senha</label>
-          <input type="password" placeholder="Senha" id="pass" />
         </div>
 
         <div id="buttonSubmit">
-          <input type="submit" value="Login" id="loginButton" />
-          <a href="../recoverPass/">Esqueci minha senha</a>
+          <input type="submit" value="Enviar email" id="recover" />
         </div>
       </form>
     </section>
@@ -37,6 +34,6 @@
     <div id="message" class="hidden"></div>
 
     <script src="../../components/menu/index.js"></script>
-    <script src="login.js"></script>
+    <script src="recoverPass.js"></script>
   </body>
 </html>

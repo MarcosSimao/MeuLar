@@ -6,20 +6,77 @@
 
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./view/components/menu/style.css" />
+
     <title>Meu Lar</title>
   </head>
-  <body>
-    <div id="content">
-      <h1>MEU LAR</h1>
-      <h2>Estamos trabalhando para construir uma interface melhor</h2>
+  <body
+  >
+    <p
+      style="
+        background: #fff;
+        width: 30vw;
+        padding: 10px;
+        border-radius: 50px;
+        box-sizing: border-box;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 50px;
+      "
+    >
+      <input
+        id="search"
+        type="search"
+        placeholder="Pesquisar por locais"
+        style="
+          width: 90%;
+          border: none;
+          padding: inherit;
+          outline: none;
+          font-size: 1.2rem;
+          color: var(--primary-color);
+          font-family: 'Roboto';
+        "
+      />
+      <button style="border: none; padding: inherit; cursor: pointer; background: transparent">
+        <i class="fas fa-search" style="color: #2278fa"></i>
+      </button>
+    </p>
 
-      <p><a href="view/pages/login/">Logar como usuário</a></p>
-      <p><a href="view/pages/loginLar/">Logar como Lar Temporário</a></p>
-      <p><a href="view/pages/loginOng/">Logar como Ong</a></p>
-
-      <p><a href="view/pages/register/">Registrar usuário</a></p>
-      <p><a href="view/pages/registerLar/">Registrar Lar Temporário</a></p>
-      <p><a href="view/pages/registerOng/">Registrar Ong</a></p>
-    </div>
+    <div
+      style="
+        width: 90%;
+        /* height: 70%; */
+        background: #fff;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
+        top: 200px
+      "
+    >
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+      <h1>Teste</h1>
+    <script
+      src="https://kit.fontawesome.com/3765ed8b9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./view/components/menu/index.js">
+    </script>
+    <script>
+      const loginPerson = './view/pages/login'
+      const loginLar = './view/pages/loginLar'
+      const loginOng = './view/pages/loginOng'
+      const registerPerson = './view/pages/register'
+      const registerLar = './view/pages/registerLar'
+      const registerOng = './view/pages/registerOng'
+  
+      menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);
+    </script>
   </body>
 </html>

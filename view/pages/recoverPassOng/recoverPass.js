@@ -1,18 +1,14 @@
-const loginButton = document.getElementById("loginButton");
+const recoverButton = document.getElementById("recover");
 
-const formData = new FormData();
-
-const message = document.getElementById("message");
-
-const login = async (evt) => {
+const recover = async (evt) => {
   evt.preventDefault();
   const email = document.getElementById("email");
-  const pass = document.getElementById("pass");
 
-  const url = "../../../controller/registerLoginPerson.php";
+  const url = '../../../controller/forgotPasswordOngs.php';
 
-  formData.append("email", email.value);
-  formData.append("senha", pass.value);
+  const formData = new FormData();
+
+  formData.append('email', email.value);
 
   const options = {
     method: "POST",
@@ -25,14 +21,14 @@ const login = async (evt) => {
   message.textContent = res;
 
   message.classList.remove("hidden");
-  if (res !== "bem vindo") {
+  if (res !== `Enviamos email para ${email.value}`) {
     message.classList.remove("success");
     message.classList.add("error");
   } else {
     message.classList.remove("error");
     message.classList.add("success");
     setTimeout(() => {
-      window.location.href = "../working/";
+      window.location.href = "../../..";
     }, 2000);
   }
 
@@ -55,4 +51,4 @@ const registerOng = '../registerOng'
 
 menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);
 
-loginButton.addEventListener("click", (evt) => login(evt));
+recoverButton.addEventListener("click", (evt) => recover(evt));

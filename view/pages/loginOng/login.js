@@ -1,4 +1,4 @@
-const loginButton = document.getElementById("buttonSubmit");
+const loginButton = document.getElementById("loginButton");
 
 const formData = new FormData();
 
@@ -45,5 +45,14 @@ const login = async (evt) => {
     message.style.animation = "fadeIn 0.5s";
   }, 5500);
 };
+
+const loginPerson = '../login'
+const loginLar = '../loginLar'
+const loginOng = '../loginOng'
+const registerPerson = '../register'
+const registerLar = '../registerLar'
+const registerOng = '../registerOng'
+
+menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);
 
 loginButton.addEventListener("click", (evt) => login(evt));

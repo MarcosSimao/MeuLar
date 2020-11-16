@@ -104,4 +104,48 @@
       header('Location: ../view/error.php');
      }
  }
+ 
+ public static function searchIdPerson($email):string{
+   $sql = 'SELECT id from pessoa WHERE email=:EMAIL';
+     try{
+        $sqls= Conexao::conectBanco()->prepare($sql);
+        $param=array(
+           ":EMAIL"=>$email 
+        );
+      $sqls->execute($param);
+     $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+           return $exib['id'];
+     } catch (PDOException $ex) {
+      return $ex;
+     }  
+ }
+  public static function searchIdOngs($email):string{
+   $sql = 'SELECT id from ongs WHERE email=:EMAIL';
+     try{
+        $sqls= Conexao::conectBanco()->prepare($sql);
+        $param=array(
+           ":EMAIL"=>$email 
+        );
+      $sqls->execute($param);
+     $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+           return $exib['id'];
+     } catch (PDOException $ex) {
+      return $ex;
+     }  
+ }
+  public static function searchIdHomer($email):string{
+   $sql = 'SELECT id from lartemporario WHERE email=:EMAIL';
+     try{
+        $sqls= Conexao::conectBanco()->prepare($sql);
+        $param=array(
+           ":EMAIL"=>$email 
+        );
+      $sqls->execute($param);
+     $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+           return $exib['id'];
+     } catch (PDOException $ex) {
+      return $ex;
+     }  
+ }
+ 
 }

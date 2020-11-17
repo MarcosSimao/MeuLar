@@ -10,12 +10,13 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
      if(DaoStaticActions::personEmailExists($email)){
          $id= DaoStaticActions::searchIdPerson($email);
         $senha= ControlerStaticActions::passwordGenerator();
-        
-        echo $id;
-        echo "<br/>";
-        echo $email;
-         echo "<br/>";
-        echo $senha;
+        $recoverModel= new RecoverPasswordModel($id, $email,$senha);
+        $recover= new RecoverPassword();
+        if($recover->insertRecoverPerson($recoverModel)){
+            echo "Enviamos o email para ".$email;
+        }else{
+            echo "erro no cadastro";
+        }
      }else{
        echo "email nao esta registrado "; 
      }

@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/MeuLar/controller/forgotPasswordPerson.php</file>
+            <file>file:/C:/xampp/htdocs/MeuLar/database/Insert.php</file>
+            <file>file:/C:/xampp/htdocs/MeuLar/database/RecoverPassword.php</file>
             <file>file:/C:/xampp/htdocs/MeuLar/controller/textMudarsenha.php</file>
             <file>file:/C:/xampp/htdocs/MeuLar/controller/forgotPasswordHomer.php</file>
-            <file>file:/C:/xampp/htdocs/MeuLar/controller/forgotPasswordOngs.php</file>
         </group>
     </open-files>
 </project-private>

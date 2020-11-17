@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <form action="forgotPasswordPerson.php" method="POST">
+        <form action="forgotPasswordHomer.php" method="POST">
            Email<input type="text" name="email" />
            <button type="submit">enviar</button>
            </form>

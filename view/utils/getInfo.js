@@ -16,6 +16,28 @@ const getUfs = (uf) => {
     });
 };
 
+const getCities = (city, uf) => {
+  fetch(
+    `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/distritos`
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      return res.sort((a, b) => (a.nome > b.nome ? 1 : -1));
+    })
+    .then((cities) => {
+      city.innerHTML = "";
+
+      cities.map((item) => {
+        const citie = document.createElement("option");
+
+        citie.textContent = item.nome;
+        citie.value = item.nome;
+
+        city.appendChild(citie);
+      });
+    });
+};
+
 async function getCep(value, street, neighborhood, city, uf) {
   let url = `https://viacep.com.br/ws/${value}/json/`;
 

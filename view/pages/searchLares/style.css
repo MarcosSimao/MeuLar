@@ -1,0 +1,77 @@
+#container {
+  margin: 10px 0;
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-items: center;
+}
+
+#container button {
+  outline: none;
+  width: 15%;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  font: 1rem Roboto, sans-serif;
+  background: var(--button-bg);
+  transition: background 0.3s;
+}
+
+#container button:hover {
+  background: var(--button-bg-hover);
+}
+
+#container h1 {
+  font: 600 3rem "Open Sans";
+  text-align: center;
+}
+
+.ong {
+  width: 70%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+.info {
+  margin: 0 50px;
+}
+
+.info .title {
+  font: 2rem "Open Sans";
+}
+
+.info .address {
+  font: 1rem "Open Sans";
+}
+
+.info .whatsapp {
+  text-decoration: none;
+  cursor: pointer;
+  font: 1rem "Open Sans";
+  color: var(--primary-color);
+}
+
+.info .whatsapp:hover {
+  text-decoration: underline;
+}

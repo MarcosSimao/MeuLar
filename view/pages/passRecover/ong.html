@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../../global.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../components/menu/style.css" />
+    <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
+
+    <title>Recuperação de Senha</title>
+  </head>
+  <body>
+    <section>
+      <figure>
+        <figcaption class="hidden">Recuperação de Senha</figcaption>
+        <img src="../../assets/cadastro_ong.png" alt="Cadastro" />
+      </figure>
+
+      <form method="POST">
+        <h2>Entre com seu login e senha que recebeu em seu e-mail</h2>
+        <div id="info">
+          <label for="email" class="hidden">Email</label>
+          <input type="email" placeholder="Email" id="email" />
+
+          <label for="pass" class="hidden">Senha</label>
+          <input type="password" placeholder="Senha" id="pass" />
+        </div>
+
+        <div id="buttonSubmit">
+          <input type="submit" value="Login" id="loginButton" />
+        </div>
+      </form>
+    </section>
+
+    <div id="message" class="hidden"></div>
+
+    <script src="../../components/menu/index.js"></script>
+    <script src="ong.js"></script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 function loadPages($class){
  $class = str_replace('\\','/',$class);
-   $paginas = ['../controller/','../database/','../model/','../view/']; 
+   $paginas = ['../controller/','../database/','../model/','../view/','../email']; 
     for($i=0;$i<=count($paginas)-1;$i++){
   if(file_exists($paginas[$i].$class.'.php')) {
       require_once $paginas[$i].$class.'.php';  

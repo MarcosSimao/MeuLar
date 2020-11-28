@@ -53,5 +53,29 @@ public function insertRecoverHomer(RecoverPasswordModel $homer):bool{
       return false; 
     }  
 }
+
+public function passLoginPerson($email,$senha):int{
+    $sql="SELECT id,id_pessoa FROM passwordtemppessoa WHERE email=:EMAIL AND senha=:SENHA";
+      try{
+        $sqls=$this->connection->prepare($sql);
+        $param=array(
+           ":EMAIL"=>$email,
+            ":SENHA"=>$senha
+        );
+      $sqls->execute($param);
+      if($sqls->rowCount()>0){   
+      
+     $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+     $exib['id'];
+     $id= $exib['id_pessoa'];
+     return $id;
+    }else{
+        return 0;
+    }
+     } catch (PDOException $ex) {
+     return 0;
+     }
+    
+}
     
 }

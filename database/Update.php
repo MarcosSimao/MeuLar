@@ -1,4 +1,7 @@
 <?php
-class Update {
-    //put your code here
+class Update extends PDO{
+    private $connection;
+   public function __construct() {
+     $this->connection=Conexao::conectBanco();
+       }
 }

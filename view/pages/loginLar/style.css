@@ -27,6 +27,7 @@ section form {
   flex-direction: column;
   width: 35%;
   align-items: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 section form #info,
@@ -64,7 +65,12 @@ section form input[type="submit"] {
   font-weight: bold;
   cursor: pointer;
   margin-top: 40px;
-  max-width: 70%;
+  transition: background 0.5s;
+  border: none;
+}
+
+section form input[type="submit"]:hover {
+  background: var(--button-bg-hover);
 }
 
 section form a {

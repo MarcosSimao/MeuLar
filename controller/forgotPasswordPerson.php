@@ -13,7 +13,15 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
         $recoverModel= new RecoverPasswordModel($id, $email,$senha);
         $recover= new RecoverPassword();
         if($recover->insertRecoverPerson($recoverModel)){
-            echo "Enviamos o email para ".$email;
+            $enviarEmail= new Email();
+            $link="http://localhost/MeuLar/view/pages/passRecover/user.html";
+           if($enviarEmail->enviar($email, $senha,$link)){
+            echo "Enviamos o email para ".$email;   
+           }else{
+               echo "erro ao enviar o email";
+           }
+            
+            
         }else{
             echo "erro no cadastro";
         }

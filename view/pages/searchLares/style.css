@@ -37,6 +37,11 @@
   text-align: center;
 }
 
+#container > h2 {
+  font: 400 1rem "Open Sans";
+  text-align: center;
+}
+
 .ong {
   width: 70%;
   margin: 10px auto;
@@ -65,6 +70,14 @@
   font: 1rem "Open Sans";
 }
 
+.disponivel {
+  color: #0f0;
+}
+
+.indisponivel {
+  color: #f00;
+}
+
 .info .whatsapp {
   text-decoration: none;
   cursor: pointer;
@@ -74,4 +87,18 @@
 
 .info .whatsapp:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  #container {
+    width: 90vw;
+  }
+
+  #container button {
+    width: 30%;
+  }
+
+  #container h1 {
+    font-size: 2rem;
+  }
 }

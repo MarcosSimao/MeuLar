@@ -34,7 +34,7 @@ a.title {
 
 .login {
   width: 15%;
-  height: 22vh;
+  height: 25vh;
   position: absolute;
   right: 15%;
   top: 8vh;
@@ -45,7 +45,7 @@ a.title {
 
 .register {
   width: 15%;
-  height: 22vh;
+  height: 30vh;
   position: absolute;
   right: 3%;
   top: 8vh;
@@ -87,4 +87,32 @@ a.title {
   background: var(--button-bg);
   text-decoration: none;
   color: #fff;
+}
+
+@media (max-width: 640px) {
+  a.title {
+    font-size: 1.7rem;
+    width: 50%;
+  }
+
+  .buttons {
+    justify-content: flex-start;
+  }
+
+  .loginButton,
+  .registerButton {
+    font-size: 1rem;
+    width: 40%;
+  }
+
+  .login {
+    width: 50%;
+    height: 37vh;
+  }
+
+  .register {
+    right: 5%;
+    width: 50%;
+    height: 37vh;
+  }
 }

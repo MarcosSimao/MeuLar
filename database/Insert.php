@@ -76,23 +76,21 @@ class Insert extends PDO{
 }
   }
   public function insertAnimals(Animals $animals,int $id):bool{
-    $sql='INSERT INTO animais(id_Ongs,nome,porte,sexo,descricao,saude,imagem_animal)' 
-        .'VALUES(:ID,:NOME,:PORTE,:SEXO,:DESCRICAO,:SAUDE,:IMAGEM)'; 
+    $sql='INSERT INTO animais(id_Ongs,nome,porte,sexo,imagem_animal)' 
+        .'VALUES(:ID,:NOME,:PORTE,:SEXO,:IMAGEM)'; 
     try {
         $sqls=$this->connection->prepare($sql);
         $sqls->bindValue(':ID',$id,PDO::PARAM_INT);
         $sqls->bindValue(':NOME',$animals->getNome(),PDO::PARAM_STR);
         $sqls->bindValue(':PORTE',$animals->getPorte(),PDO::PARAM_STR);
         $sqls->bindValue(':SEXO',$animals->getSexo(),PDO::PARAM_STR);
-        $sqls->bindValue(':DESCRICAO',$animals->getDescricao(),PDO::PARAM_STR);
-        $sqls->bindValue(':SAUDE',$animals->getSaude(),PDO::PARAM_STR);
         $sqls->bindValue(':IMAGEM',$animals->getImg_animais(),PDO::PARAM_STR);
        if($sqls->execute()>0){
-           return true;
+       return true;
        }
  }catch (PDOException $exc) {
+    
     return false;
-    echo "erro no cadastro".$exc;
 }   
   }
    

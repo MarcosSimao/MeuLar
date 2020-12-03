@@ -203,6 +203,8 @@ div#message.error {
   #content form {
     width: 100%;
     margin-left: 0;
+    position: relative;
+    top: 5%;
   }
 
   #content form div {
@@ -227,10 +229,14 @@ div#message.error {
   #content form input[type="submit"] {
     width: 80%;
     padding: 10px;
-    margin-bottom: 20px;
   }
 
   #content img {
     display: none;
+  }
+
+  #message {
+    width: 50vw;
+    height: 10vh;
   }
 }

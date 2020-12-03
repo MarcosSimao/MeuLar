@@ -1,11 +1,8 @@
-@import "../../../global.css";
-
 body {
   width: 100vw;
   height: 100vh;
 
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-around;
   align-items: center;
 }
@@ -19,9 +16,8 @@ img {
 }
 
 #content {
-  width: 40%;
+  width: 50%;
   max-width: 1200px;
-
   height: 50%;
 
   background-color: var(--bg-form-color);
@@ -57,14 +53,14 @@ img {
   align-items: center;
 }
 
-#content form #account-main {
+#content form {
   width: 100%;
   margin-top: 30px;
   display: flex;
   justify-content: space-around;
 }
 
-#content form #account-main input {
+#content form input {
   width: 30%;
   height: 55px;
   border: var(--border);
@@ -87,25 +83,6 @@ img {
   color: var(--primary-color);
   font-family: "Open-Sans", sans-serif;
   background: #fff;
-}
-
-#content form #account-info {
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-#content form #account-info input {
-  width: 30%;
-  height: 55px;
-  border: var(--border);
-  border-radius: 10px;
-  font-size: 1.2rem;
-  padding: 15px;
-  outline: none;
-  color: var(--primary-color);
-  font-family: "Open-Sans", sans-serif;
 }
 
 #content input[type="submit"] {
@@ -141,8 +118,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 65px;
-  height: 70vh;
+  margin-top: -65px;
 }
 
 #lateral {
@@ -159,8 +135,8 @@ img {
 }
 
 #lateral #img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: var(--border);
   display: flex;
@@ -178,7 +154,7 @@ img {
   border: var(--border);
   background-color: #fff;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   border-radius: 10px;
   font-family: "Open Sans", sans-serif;
   color: var(--primary-color);
@@ -190,11 +166,6 @@ img {
 
 #lateral label[for="sendImg"] {
   height: 20vh;
-}
-
-#lateral #img img.widthImg {
-  width: 120px;
-  background-size: cover;
 }
 
 #message {
@@ -269,61 +240,83 @@ div#message.error {
 
 @media (max-width: 640px) {
   body {
-    background: #fff;
-    display: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  img {
+    width: 80%;
+    position: relative;
+    top: 15%;
   }
 
   #content {
-    height: 100%;
-    border-radius: 0;
+    position: relative;
+    top: 15%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  #content p {
+    margin-top: -100px;
   }
 
   #content form {
+    display: flex;
     flex-direction: column;
-    margin-left: 0;
   }
 
-  #content form h1,
-  #content form p {
-    margin-left: 0;
-  }
-
-  #content form #aside-rigth {
-    margin-top: 0;
-    height: 36vh;
-  }
-
-  #content form #aside-left {
-    margin: 0;
-    width: 85%;
-  }
-
-  #lateral label {
-    width: 90vw;
-  }
-
-  #content form div {
+  #aside-left div {
+    display: flex;
+    margin-top: -100px;
     flex-direction: column;
+  }
+
+  #aside-left div input,
+  #aside-left div select {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  #aside-rigth div#lateral {
+    margin-top: 160px;
+    height: 150px;
+  }
+
+  #lateral #img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+  }
+
+  #lateral #img img {
+    margin-bottom: 10px;
+    width: 20%;
+    position: relative;
+    top: 10%;
+    transform: translateY(-50%);
+  }
+
+  #buttons {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    align-self: center;
     justify-content: space-around;
   }
 
-  #content form div#address {
-    flex-wrap: nowrap;
-    height: initial;
-  }
-
-  #content form #account-main input,
-  #content form #address input,
-  #content form #address select,
-  #content form #account-info input {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  #content input[type="submit"] {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
+  #buttons button,
+  #buttons input[type="submit"] {
+    width: 40%;
   }
 }

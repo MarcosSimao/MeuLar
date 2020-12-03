@@ -4,7 +4,8 @@ const menu = (
   loginOng,
   registerPerson,
   registerLar,
-  registerOng
+  registerOng,
+  isHome
 ) => {
   const div = document.createElement("div");
   div.classList.add("menu");
@@ -18,7 +19,7 @@ const menu = (
   title.textContent = "Meu Lar";
 
   const titleLogo = document.createElement("img");
-  titleLogo.src = "../../../titleLogo.svg";
+  titleLogo.src = isHome ? "titleLogo.svg" : "../../../titleLogo.svg";
   titleLogo.style.width = "20%";
 
   title.appendChild(titleLogo);

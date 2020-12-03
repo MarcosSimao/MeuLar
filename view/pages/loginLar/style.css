@@ -132,6 +132,9 @@ div#message.error {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    position: relative;
+    top: 10%;
   }
 
   section figure {
@@ -172,5 +175,9 @@ div#message.error {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  #message {
+    width: 50vw;
   }
 }

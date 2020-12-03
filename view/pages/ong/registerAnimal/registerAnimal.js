@@ -29,8 +29,6 @@ message.classList.add("hidden");
 submit.addEventListener("click", async (evt) => {
   evt.preventDefault();
 
-  // const url = "../../../controller/RegisterOngs.php";
-
   formData.append("nome", nome.value);
   formData.append("porte", porte.value);
   formData.append("genero", gender.value);

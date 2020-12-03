@@ -1,116 +1,70 @@
-const mock = [
-  {
-    nome: "Teste 1",
-    whatsapp: "888888888",
-    address: "Rua dos bobos, nº 0",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 2",
-    whatsapp: "777777777",
-    address: "Rua dos bobos, nº 1",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 3",
-    whatsapp: "666666666",
-    address: "Rua dos bobos, nº 3",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 4",
-    whatsapp: "555555555",
-    address: "Rua dos bobos, nº 4",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 5",
-    whatsapp: "444444444",
-    address: "Rua dos bobos, nº 5",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 6",
-    whatsapp: "333333333",
-    address: "Rua dos bobos, nº 6",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 7",
-    whatsapp: "222222222",
-    address: "Rua dos bobos, nº 7",
-    img: "https://picsum.photos/200/200",
-  },
-  {
-    nome: "Teste 8",
-    whatsapp: "11111111111",
-    address: "Rua dos bobos, nº 8",
-    img: "https://picsum.photos/200/200",
-  },
-];
-
-// const url = ""
 let data = [];
 
 const content = document.getElementById("content");
 
 const list = () => {
-  mock.map((item) => {
-    const ong = document.createElement("div");
-    ong.classList.add("ong");
+  if (!data.length > 0) {
+    const message = document.createElement("h2");
+    message.textContent = "Não há Ongs na sua cidade";
 
-    const img = document.createElement("div");
-    img.classList.add("avatar");
-    img.style.background = `url(${item.img})`;
+    content.appendChild(message);
+  } else {
+    data.map((item) => {
+      const ong = document.createElement("div");
+      ong.classList.add("ong");
 
-    const info = document.createElement("div");
-    info.classList.add("info");
+      const img = document.createElement("div");
+      img.classList.add("avatar");
+      img.style.background = `url(${item.image})`;
 
-    const title = document.createElement("h2");
-    title.classList.add("title");
-    title.textContent = item.nome;
+      const info = document.createElement("div");
+      info.classList.add("info");
 
-    const address = document.createElement("p");
-    address.classList.add("address");
-    address.textContent = `Endereço: ${item.address}`;
+      const title = document.createElement("h2");
+      title.classList.add("title");
+      title.textContent = item.nome;
 
-    const whatsapp = document.createElement("a");
-    whatsapp.classList.add("whatsapp");
-    whatsapp.href = `https://api.whatsapp.com/send?phone=55${item.whatsapp}`;
-    whatsapp.target = "_blank";
+      const email = document.createElement("p");
+      email.classList.add("address");
+      email.textContent = `Email: ${item.email}`;
 
-    whatsapp.textContent = "Link para o WhatsApp";
+      const address = document.createElement("p");
+      address.classList.add("address");
+      address.textContent = `Endereço: ${item.endereco} - ${item.uf}`;
 
-    info.appendChild(title);
-    info.appendChild(address);
-    info.appendChild(whatsapp);
+      const whatsapp = document.createElement("a");
+      whatsapp.classList.add("whatsapp");
+      whatsapp.href = `https://api.whatsapp.com/send?phone=55${item.contato}`;
+      whatsapp.target = "_blank";
 
-    ong.appendChild(img);
-    ong.appendChild(info);
+      whatsapp.textContent = "Link para o WhatsApp";
 
-    content.appendChild(ong);
-  });
+      info.appendChild(title);
+      info.appendChild(address);
+      info.appendChild(email);
+      info.appendChild(whatsapp);
+
+      ong.appendChild(img);
+      ong.appendChild(info);
+
+      content.appendChild(ong);
+    });
+  }
 };
-list();
 
-// const getData = () => {
-//   const ufLocalStorage = window.localStorage.getItem("uf");
-//   const value = window.localStorage.getItem("value");
+const getData = async () => {
+  const url = "../../../controller/listarOngs.php";
 
-//   const formData = new FormData();
-
-//   formData.append("uf", ufLocalStorage);
-//   formData.append("value", value);
-
-//   const options = {
-//     method: "GET",
-//     body: formData,
-//   };
-
-//   fetch(url, options).then((res) => (data = res.json()));
-
-// list();
-// };
+  await fetch(url)
+    .then((res) => res.text())
+    .then((res) => {
+      data = res;
+      data = JSON.parse(data);
+      console.log(data);
+    });
+  list();
+};
+getData();
 
 const back = document.getElementById("back");
 back.addEventListener("click", () => {
@@ -125,4 +79,3 @@ const registerLar = "../registerLar";
 const registerOng = "../registerOng";
 
 menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);
-// getData();

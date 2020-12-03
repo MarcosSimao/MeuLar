@@ -32,7 +32,7 @@ const login = async (evt) => {
     message.classList.remove("error");
     message.classList.add("success");
     setTimeout(() => {
-      window.location.href = "../working/";
+      window.location.href = "../user/dashboard";
     }, 2000);
   }
 

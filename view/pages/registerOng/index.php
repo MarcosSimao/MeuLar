@@ -1,3 +1,15 @@
+<?php
+session_start();  
+if($_SESSION['ong']){
+  header('location:../ong/dashboard/index.php'); 
+  }else if($_SESSION['homer']){
+    header('location:../lar/dashboard/index.php');  
+   }else{
+      
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>

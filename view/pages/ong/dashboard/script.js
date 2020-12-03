@@ -2,133 +2,93 @@ menu();
 
 const info = document.getElementById("info");
 
-let data = {
-  nome: "Teste",
-  email: "teste@teste.com",
+const url = "../../../../controller/infoOng.php";
+
+let data = {};
+
+const showOngInfo = () => {
+  const name = document.createElement("p");
+  name.classList.add("name");
+  name.textContent = `Nome: ${data.nome}`;
+
+  const email = document.createElement("p");
+  email.classList.add("email");
+  email.textContent = `Email: ${data.email}`;
+
+  info.appendChild(name);
+  info.appendChild(email);
+
+  const registerAnimal = document.getElementById("registerAnimal");
+  registerAnimal.addEventListener("click", () => {
+    window.location.href = "../registerAnimal";
+  });
 };
 
-// const url = ""
+const getOngInfo = async () => {
+  await fetch(url)
+    .then((res) => res.text())
+    .then((res) => {
+      data = res;
+      data = JSON.parse(data);
+    });
 
-// const getOngInfo = () => {
-//   fetch("")
-//     .then((res) => res.json())
-//     .then((res) => (data = res.data));
-// };
-
-// getInfo();
-
-const name = document.createElement("p");
-name.classList.add("name");
-name.textContent = `Nome: ${data.nome}`;
-
-const email = document.createElement("p");
-email.classList.add("email");
-email.textContent = `Email: ${data.email}`;
-
-info.appendChild(name);
-info.appendChild(email);
-
-const registerAnimal = document.getElementById("registerAnimal");
-registerAnimal.addEventListener("click", () => {
-  window.location.href = "../registerAnimal";
-});
-
-const animaisMock = [
-  {
-    nome: "Animal 1",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 2",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 3",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 4",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 5",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 6",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 7",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 8",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 9",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 10",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 11",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 12",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 14",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 15",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 16",
-    url: "https://picsum.photos/150/150",
-  },
-  {
-    nome: "Animal 17",
-    url: "https://picsum.photos/150/150",
-  },
-];
-
-// const urlAnimaisInfo = "";
-// let animaisInfo = [];
-
-// const getAnimaisInfo = () => {
-//   fetch(urlAnimaisInfo)
-//     .then((res) => res.json())
-//     .then((res) => (animaisInfo = res.data));
-// };
-// getAnimaisInfo()
+  showOngInfo();
+};
+getOngInfo();
 
 const animais = document.getElementById("animais");
 
+let animaisInfo = [];
+
 const showAnimais = () => {
-  animaisMock.map((item) => {
-    const animal = document.createElement("div");
-    animal.classList.add("animal");
+  if (!animaisInfo.length > 0) {
+    const message = document.createElement("h1");
+    message.textContent = "Não há animais cadastrados";
 
-    const img = document.createElement("img");
-    img.classList.add("img");
-    img.src = item.url;
+    animais.appendChild(message);
+  } else {
+    animaisInfo.map((item) => {
+      const animal = document.createElement("div");
+      animal.classList.add("animal");
 
-    const nome = document.createElement("p");
-    nome.classList.add("name");
-    nome.textContent = item.nome;
+      const img = document.createElement("img");
+      img.classList.add("img");
+      img.src = item.imagem;
 
-    animal.appendChild(img);
-    animal.appendChild(nome);
+      const nome = document.createElement("p");
+      nome.classList.add("name");
+      nome.textContent = item.nome;
 
-    animais.appendChild(animal);
-  });
+      const porte = document.createElement("p");
+      porte.classList.add("name");
+      porte.textContent = `Porte: ${item.porte}`;
+
+      const gender = document.createElement("p");
+      gender.classList.add("name");
+      gender.textContent = `Sexo: ${item.sexo}`;
+
+      animal.appendChild(img);
+      animal.appendChild(nome);
+      animal.appendChild(porte);
+      animal.appendChild(gender);
+
+      animais.appendChild(animal);
+    });
+  }
 };
-showAnimais();
+
+const urlAnimaisInfo = "../../../../controller/listarAnimals.php";
+
+const getAnimaisInfo = async () => {
+  await fetch(urlAnimaisInfo)
+    .then((res) => res.text())
+    .then((res) => {
+      animaisInfo = res;
+      animaisInfo = JSON.parse(animaisInfo);
+    }).catch(
+      animaisInfo = []
+    );
+
+  showAnimais();
+};
+getAnimaisInfo();

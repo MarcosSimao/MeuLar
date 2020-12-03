@@ -5,7 +5,7 @@ const registerPerson = "./view/pages/register";
 const registerLar = "./view/pages/registerLar";
 const registerOng = "./view/pages/registerOng";
 
-menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng, isHome = true);
+menu(loginPerson, loginLar, loginOng, registerPerson, registerLar, registerOng);
 
 const uf = document.getElementById("uf");
 getUfs(uf);
@@ -39,10 +39,13 @@ searchLares.addEventListener("click", () => {
 
 const images = [
   {
-    src: "./view/images/slide1.png",
+    src: "./view/images/slide1.jpg",
   },
   {
-    src: "./view/images/slide2.png",
+    src: "./view/images/slide2.jpg",
+  },
+  {
+    src: "./view/images/slide3.jpg",
   },
 ];
 

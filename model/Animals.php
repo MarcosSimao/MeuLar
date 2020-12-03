@@ -1,12 +1,10 @@
 <?php
 class Animals {
-   private $id,$codigo,$nome,$porte,$sexo,$descricao,$saude,$img_animais;
-   function __construct($nome, $porte, $sexo, $descricao, $saude, $img_animais) {
+   private $id,$codigo,$nome,$porte,$sexo,$img_animais;
+   function __construct($nome, $porte, $sexo, $img_animais) {
        $this->nome = $nome;
        $this->porte = $porte;
        $this->sexo = $sexo;
-       $this->descricao = $descricao;
-       $this->saude = $saude;
        $this->img_animais = $img_animais;
    }
    function getId() {
@@ -33,13 +31,7 @@ class Animals {
        return $this->sexo;
    }
 
-   function getDescricao() {
-       return $this->descricao;
-   }
-
-   function getSaude() {
-       return $this->saude;
-   }
+  
 
    function getImg_animais() {
        return $this->img_animais;
@@ -59,14 +51,6 @@ class Animals {
 
    function setSexo($sexo): void {
        $this->sexo = $sexo;
-   }
-
-   function setDescricao($descricao): void {
-       $this->descricao = $descricao;
-   }
-
-   function setSaude($saude): void {
-       $this->saude = $saude;
    }
 
    function setImg_animais($img_animais): void {

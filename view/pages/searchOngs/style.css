@@ -37,6 +37,11 @@
   text-align: center;
 }
 
+#container > h2 {
+  font: 400 1rem "Open Sans";
+  text-align: center;
+}
+
 .ong {
   width: 70%;
   margin: 10px auto;
@@ -74,4 +79,14 @@
 
 .info .whatsapp:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  #container {
+    width: 90vw;
+  }
+
+  #container button {
+    width: 20%;
+  }
 }

@@ -24,8 +24,41 @@ const menu = () => {
   profileButton.classList.add("profileButton");
   profileButton.textContent = "Opções";
 
+  const message = document.createElement("p");
+  message.id = "message";
+  message.classList.add("hidden");
+
   const linkToLeave = document.createElement("a");
-  linkToLeave.href = "/";
+  linkToLeave.addEventListener("click", () => {
+    const url = "../../../../controller/sair.php";
+
+    fetch(url)
+      .then((res) => res.text())
+      .then((res) => {
+        message.textContent = res;
+
+        message.classList.remove("hidden");
+        if (res !== "vc saiu") {
+          message.classList.remove("success");
+          message.classList.add("error");
+        } else {
+          message.classList.remove("error");
+          message.classList.add("success");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 2000);
+        }
+
+        setTimeout(() => {
+          message.style.animation = "fadeOut 0.5s";
+        }, 5000);
+
+        setTimeout(() => {
+          message.classList.add("hidden");
+          message.style.animation = "fadeIn 0.5s";
+        }, 5500);
+      });
+  });
   linkToLeave.textContent = "Sair";
   linkToLeave.classList.add("link");
 
@@ -71,4 +104,5 @@ const menu = () => {
   div.appendChild(profile);
 
   document.body.appendChild(div);
+  document.body.appendChild(message);
 };

@@ -180,4 +180,8 @@ div#message.error {
     flex-direction: column;
     align-items: center;
   }
+
+  #message {
+    width: 50vw;
+  }
 }

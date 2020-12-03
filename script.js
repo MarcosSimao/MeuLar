@@ -19,7 +19,7 @@ const searchOngs = document.getElementById("searchOngs");
 searchOngs.value = "ongs";
 searchOngs.addEventListener("click", () => {
   window.localStorage.setItem("cidade", city.value);
-  window.localStorage.setItem("value", searchOngs.value);
+  window.localStorage.setItem("uf", uf.value);
 
   if (uf.value !== "none") {
     window.location.href = "./view/pages/searchOngs";
@@ -30,7 +30,7 @@ const searchLares = document.getElementById("searchLares");
 searchLares.value = "lares";
 searchLares.addEventListener("click", () => {
   window.localStorage.setItem("cidade", city.value);
-  window.localStorage.setItem("value", searchLares.value);
+  window.localStorage.setItem("uf", uf.value);
 
   if (uf.value !== "none") {
     window.location.href = "./view/pages/searchLares";

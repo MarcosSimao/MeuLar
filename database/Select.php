@@ -65,6 +65,7 @@ class Select  extends PDO{
                 $arr["bairro"]=$ongs->getBairro();
                   $arr["contato"]=$ongs->getContato();
                     $arr["imagem"]=$ongs->getImagem_Ongs();
+                    $arr["disponivel"]=$exib['disponivel'];
        
         
         $list[]=$arr;

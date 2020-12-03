@@ -55,13 +55,26 @@ const list = () => {
 const getData = async () => {
   const url = "../../../controller/listarOngs.php";
 
-  await fetch(url)
+  const cidade = localStorage.getItem("cidade");
+  const uf = localStorage.getItem("uf");
+
+  const formData = new FormData();
+
+  formData.append("cidade", cidade);
+  formData.append("uf", uf);
+
+  const options = {
+    method: "POST",
+    body: formData,
+  };
+
+  await fetch(url, options)
     .then((res) => res.text())
     .then((res) => {
       data = res;
       data = JSON.parse(data);
-      console.log(data);
-    });
+    })
+    .catch((data = []));
   list();
 };
 getData();

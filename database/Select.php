@@ -42,7 +42,7 @@ class Select  extends PDO{
     public function ListarOngs($uf,$cidade){
        $sql="SELECT * FROM ongs WHERE uf=:UF and cidade=:CIDADE and disponivel=true";
       try{
-        $sqls= Conexao::conectBanco()->prepare($sql);
+        $sqls= $this->connection->prepare($sql);
         $param=array(
            ":UF"=>$uf,
             ":CIDADE"=>$cidade
@@ -85,7 +85,7 @@ class Select  extends PDO{
   public function listrarHomer($uf,$cidade){
       $sql="SELECT * FROM lartemporario WHERE uf=:UF and cidade=:CIDADE and disponivel=true";
       try{
-        $sqls= Conexao::conectBanco()->prepare($sql);
+        $sqls= $this->connection->prepare($sql);
         $param=array(
            ":UF"=>$uf,
             ":CIDADE"=>$cidade
@@ -124,5 +124,49 @@ class Select  extends PDO{
      } catch (PDOException $ex) {
          return '';
      } 
-  }  
+  } 
+  
+  public function disponivelOng($id):bool{
+    $sql='SELECT * FROM lartemporario WHERE id=:ID';
+      try{
+        $sqls= $this->connection->prepare($sql);
+        $param=array(
+           ":ID"=>$id
+           
+        );
+      $sqls->execute($param);
+   $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+      if($exib['disponivel']==true) {
+         return true; 
+      } else{
+          return false;
+      }   
+       
+      
+     } catch (PDOException $ex) {
+    echo "".ex;
+     }   
+  }
+    public function disponivelHomer($idHomer):bool{
+       $sql='SELECT * FROM lartemporario WHERE id=:ID';
+      try{
+        $sqls= $this->connection->prepare($sql);
+        $param=array(
+           ":ID"=>$idHomer
+           
+        );
+      $sqls->execute($param);
+   $exib = $sqls->fetch(PDO::FETCH_ASSOC);
+      if($exib['disponivel']==true){
+          return true;
+      }else{
+         return false; 
+      }
+         
+       
+      
+     } catch (PDOException $ex) {
+    echo "".ex;
+     }  
+  }
 }

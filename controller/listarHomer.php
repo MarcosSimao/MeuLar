@@ -4,8 +4,4 @@ $uf=$_POST['uf'];
 $cidade=$_POST['cidade'];
 $select = new Select();
 $list=[];
-if($list[]=$select->listrarHomer($uf, $cidade)){
-  echo json_encode($list);  
-}else{
-    echo "nenhuma ong cadastrada nessa cidade !";
-}
+echo json_encode($select->listrarHomer($uf, $cidade));

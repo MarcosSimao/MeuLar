@@ -30,7 +30,7 @@ const list = () => {
 
       const address = document.createElement("p");
       address.classList.add("address");
-      address.textContent = `Endereço: ${item.endereco} - ${item.uf}`;
+      address.textContent = `Endereço: ${item.endereco} - ${item.bairro}`;
 
       const whatsapp = document.createElement("a");
       whatsapp.classList.add("whatsapp");

@@ -81,6 +81,15 @@
   text-decoration: underline;
 }
 
+
+.disponivel {
+  color: #0f0;
+}
+
+.indisponivel {
+  color: #f00;
+}
+
 @media (max-width: 640px) {
   #container {
     width: 90vw;

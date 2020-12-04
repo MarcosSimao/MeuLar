@@ -21,12 +21,12 @@
         <div id="aside-left">
           <div>
             <input type="text" placeholder="Nome" id="name" required />
-            <select name="sexo" id="gender">
+            <select name="sexo" id="gender" required>
               <option value="none">Sexo</option>
               <option value="macho">Macho</option>
               <option value="femea">Fêmea</option>
             </select>
-            <select name="porte" id="porte">
+            <select name="porte" id="porte" required>
               <option value="none">Porte</option>
               <option value="pequeno">Pequeno</option>
               <option value="medio">Médio</option>
@@ -41,7 +41,7 @@
               <img src="../../../assets/plus.svg" alt="Adicionar Imagem" />
               Adicionar imagem do animal
             </label>
-            <input type="file" id="sendImg" name="imagem" />
+            <input type="file" id="sendImg" class="hidden" accept="image/*" name="imagem" required />
           </div>
         </div>
       </form>

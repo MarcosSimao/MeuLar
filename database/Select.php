@@ -55,6 +55,7 @@ class Select  extends PDO{
           $ongs->setId($exib['id']);
           $ongs->setNome($exib['nome']);
           $ongs->setEndereco($exib['endereco']);
+          $ongs->setEmail($exib['email']);
           $ongs->setBairro($exib['bairro']);
           $ongs->setContato($exib['contato']);
           $ongs->setImagem_Ongs($exib['imagem_ongs']);
@@ -62,9 +63,10 @@ class Select  extends PDO{
           $arr["id"]=$ongs->getId();
             $arr["nome"]=$ongs->getNome();
               $arr["endereco"]=$ongs->getEndereco();
+              $arr["email"]=$ongs->getEmail();
                 $arr["bairro"]=$ongs->getBairro();
                   $arr["contato"]=$ongs->getContato();
-                    $arr["imagem"]=$ongs->getImagem_Ongs();
+                    $arr["image"]=$ongs->getImagem_Ongs();
                     $arr["disponivel"]=$exib['disponivel'];
        
         
@@ -96,6 +98,7 @@ class Select  extends PDO{
           $homer->setId($exib['id']);
           $homer->setNome($exib['nome']);
           $homer->setEndereco($exib['endereco']);
+          $homer->setEmail($exib['email']);
           $homer->setBairro($exib['bairro']);
           $homer->setContato($exib['contato']);
           $homer->setImgComprovante($exib['imagem_comproResidencia']);
@@ -103,9 +106,11 @@ class Select  extends PDO{
           $arr["id"]=$homer->getId();
             $arr["nome"]=$homer->getNome();
               $arr["endereco"]=$homer->getEndereco();
+              $arr["email"]=$homer->getEmail();
                 $arr["bairro"]=$homer->getBairro();
                   $arr["contato"]=$homer->getContato();
-                    $arr["imagem"]=$homer->getImgComprovante();
+                    $arr["image"]=$homer->getImgComprovante();
+                    $arr["disponivel"]=$exib['disponivel'];
        
         
         $list[]=$arr;
